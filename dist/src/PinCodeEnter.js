@@ -119,6 +119,10 @@ class PinCodeEnter extends React.PureComponent {
     }
     render() {
         const pin = this.props.storedPin || this.keyChainResult;
+        if (!this.props.touchIDDisabled)
+			this.props.launchTouchID(() => {
+			    this.triggerTouchID();
+			});
         return (React.createElement(react_native_1.View, { style: [
                 styles.container,
                 this.props.styleContainer
